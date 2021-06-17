@@ -1,36 +1,31 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$mat-primary-scheme: (
-  100: #0e1b71,
-  500: #3fb557,
-  700: #9f4d30,
-  contrast: (
-    100: rgba(0,0,0,0.87),
-    500: #ffffff,
-    700: #ffffff,
+$angular-primary: mat-palette($mat-teal, 500, 100, 900);
+$angular-accent: mat-palette($mat-pink, A200, A100, A400);
+$angular-warn: mat-palette($mat-red);
+$angular-default-theme: mat-light-theme(
+  (
+    color: (
+      primary: $angular-primary,
+      accent: $angular-accent,
+      warn: $angular-warn,
+    ),
   )
 );
-$mat-accent-scheme: (
-  100: #d34675,
-  500: #ff4140,
-  700: #2cf500,
-  contrast: (
-    100: rgba(0,0,0,0.87),
-    500: rgba(0,0,0,0.87),
-    700: #ffffff,
-  )
-);
-$mat-primary-palette: mat-palette($mat-primary-scheme);
-$mat-accent-palette: mat-palette($mat-accent-scheme);
-
-$app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
-
-@include angular-material-theme($app-light-theme);
+@include angular-material-theme($angular-default-theme);
 
 // following section is for dark mode.
 // use appropriate class name for darkMode
-$app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
+$angular-dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $angular-primary,
+      accent: $angular-accent,
+      warn: $angular-warn,
+    ),
+  )
+);
 .darkMode {
-  @include angular-material-theme($app-dark-theme);
+  @include angular-material-color($angular-dark-theme);
 }

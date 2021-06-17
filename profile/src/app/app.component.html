@@ -1,6 +1,12 @@
-<div [ngClass]="{'darkMode':isDark}">
-  <button mat-raised-button color="primary" (click)="isDark = !isDark">change theme</button>
+<mat-toolbar color="primary">
   
+  <div class="flex-stretch"></div>
+  <mat-icon class="mr-8">brightness_5</mat-icon>
+  <mat-slide-toggle class="mr-8" [(ngModel)]="isDark">
+  </mat-slide-toggle>
+  <mat-icon>bedtime</mat-icon>
+</mat-toolbar>
+<div [ngClass]="{'darkMode':isDark}" class="mat-app-background">  
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Shiba Inu</mat-card-title>
@@ -14,9 +20,14 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button color="primary">LIKE</button>
+      <button mat-button color="accent">SHARE</button>
+      <button mat-button color="warn">DELETE</button>
     </mat-card-actions>
   </mat-card>  
+
+  <div style="height: 200px;">
+    This is some random div
+  </div>
 </div>
 
